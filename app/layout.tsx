@@ -26,7 +26,7 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "UNDERDOG — Prove It or Shut Up",
   description: "Make a public commitment with a ticking deadline. No edits. No deletes. No excuses.",
-  metadataBase: new URL("https://underdog.so"),
+  metadataBase: new URL("https://underdog.today"),
   openGraph: {
     title: "UNDERDOG — Prove It or Shut Up",
     description: "Make a public commitment with a ticking deadline.",

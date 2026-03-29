@@ -12,7 +12,7 @@ export default function ShareButtons({ slug, shareText }: Props) {
 
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText(`underdog.so/${slug}`);
+      await navigator.clipboard.writeText(`underdog.today/${slug}`);
       setCopied(true);
       setTimeout(() => setCopied(false), 2000);
     } catch {}

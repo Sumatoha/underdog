@@ -65,10 +65,10 @@ export default function TimerClient({ pledge: initial }: Props) {
 
   const shareText =
     status === "done"
-      ? `I completed my goal: "${pledge.goal}" 🏆\n\nunderdog.so/${pledge.slug}`
+      ? `I completed my goal: "${pledge.goal}" 🏆\n\nunderdog.today/${pledge.slug}`
       : status === "failed"
-        ? `I failed: "${pledge.goal}" 💀\n\nunderdog.so/${pledge.slug}`
-        : `I publicly committed: "${pledge.goal}"\n\nWatch me prove it or fail:\nunderdog.so/${pledge.slug}`;
+        ? `I failed: "${pledge.goal}" 💀\n\nunderdog.today/${pledge.slug}`
+        : `I publicly committed: "${pledge.goal}"\n\nWatch me prove it or fail:\nunderdog.today/${pledge.slug}`;
 
   const handleComplete = async () => {
     setCompleting(true);
@@ -112,32 +112,16 @@ export default function TimerClient({ pledge: initial }: Props) {
       <div
         className={`relative z-[3] flex flex-col items-center justify-center min-h-screen px-4 py-10 ${isShaking ? "animate-shake" : "animate-fadeUp"}`}
       >
-        {/* URL + mute */}
-        <div className="flex items-center gap-3 mb-4">
-          <div
-            className="font-jetbrains uppercase"
-            style={{
-              fontSize: "clamp(9px, 1.3vw, 12px)",
-              color: "rgba(255,255,255,0.12)",
-              letterSpacing: 4,
-            }}
-          >
-            underdog.so/{pledge.slug}
-          </div>
-          <button
-            onClick={toggleMute}
-            className="font-jetbrains cursor-pointer transition-all duration-200 hover:text-white/40"
-            style={{
-              fontSize: 11,
-              color: "rgba(255,255,255,0.15)",
-              background: "none",
-              border: "none",
-              padding: 0,
-            }}
-            title={muted ? "Unmute" : "Mute"}
-          >
-            {muted ? "🔇" : "🔊"}
-          </button>
+        {/* URL */}
+        <div
+          className="font-jetbrains uppercase mb-4"
+          style={{
+            fontSize: "clamp(9px, 1.3vw, 12px)",
+            color: "rgba(255,255,255,0.12)",
+            letterSpacing: 4,
+          }}
+        >
+          underdog.today/{pledge.slug}
         </div>
 
         {/* Goal */}
@@ -285,6 +269,24 @@ export default function TimerClient({ pledge: initial }: Props) {
         )}
 
         <ShareButtons slug={pledge.slug} shareText={shareText} />
+
+        {/* Mute toggle */}
+        <button
+          onClick={toggleMute}
+          className="font-jetbrains uppercase cursor-pointer transition-all duration-300 hover:border-white/20 hover:text-white/40"
+          style={{
+            marginTop: "clamp(24px, 3vw, 40px)",
+            fontSize: 9,
+            letterSpacing: 3,
+            padding: "10px 20px",
+            borderRadius: 8,
+            border: `1px solid ${muted ? "rgba(255,255,255,0.15)" : "rgba(255,255,255,0.06)"}`,
+            background: muted ? "rgba(255,255,255,0.04)" : "transparent",
+            color: muted ? "rgba(255,255,255,0.3)" : "rgba(255,255,255,0.12)",
+          }}
+        >
+          {muted ? "SOUND OFF" : "SOUND ON"}
+        </button>
       </div>
     </div>
   );
