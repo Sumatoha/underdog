@@ -121,7 +121,7 @@ export default function TimerClient({ pledge: initial }: Props) {
             letterSpacing: 4,
           }}
         >
-          underdog/{pledge.slug}
+          underdog.today/{pledge.slug}
         </div>
 
         {/* Goal */}

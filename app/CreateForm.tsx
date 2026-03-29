@@ -152,7 +152,7 @@ export default function CreateForm() {
 
       {slug && (
         <div className="font-jetbrains text-center" style={{ fontSize: 12, color: "rgba(255,255,255,0.12)" }}>
-          underdog/<span style={{ color: "rgba(255,255,255,0.45)" }}>{slug}</span>
+          underdog.today/<span style={{ color: "rgba(255,255,255,0.45)" }}>{slug}</span>
         </div>
       )}
 
